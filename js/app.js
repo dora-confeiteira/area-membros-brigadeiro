@@ -66,7 +66,7 @@ const pdfDatabase = {
 let currentCategory = 'brigadeiros';
 
 // Access code - you can change this to your preferred code
-const ACCESS_CODE = 'BRIGADEIRO2024';
+const ACCESS_CODE = 'BRIGADEIRO2026';
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
