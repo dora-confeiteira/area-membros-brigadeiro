@@ -65,11 +65,15 @@ const pdfDatabase = {
 // Current category
 let currentCategory = 'brigadeiros';
 
+// Access code - you can change this to your preferred code
+const ACCESS_CODE = 'BRIGADEIRO2024';
+
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     loadPDFs('brigadeiros');
     setupCategoryTabs();
     setupMobileMenu();
+    checkCalculatorAccess();
     loadSavedRecipes();
 });
 
@@ -352,3 +356,73 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ============================================
+// LOCK SYSTEM FUNCTIONS
+// ============================================
+
+// Check if calculator is unlocked
+function checkCalculatorAccess() {
+    const isUnlocked = localStorage.getItem('calculatorUnlocked') === 'true';
+    const lockedEl = document.getElementById('calculatorLocked');
+    const contentEl = document.getElementById('calculatorContent');
+    
+    if (isUnlocked) {
+        lockedEl.style.display = 'none';
+        contentEl.style.display = 'block';
+    } else {
+        lockedEl.style.display = 'block';
+        contentEl.style.display = 'none';
+    }
+}
+
+// Open unlock modal
+function openUnlockModal() {
+    document.getElementById('unlockModal').classList.add('active');
+    document.getElementById('accessCode').value = '';
+    document.getElementById('modalError').classList.remove('show');
+}
+
+// Close unlock modal
+function closeUnlockModal() {
+    document.getElementById('unlockModal').classList.remove('active');
+}
+
+// Validate access code
+function validateCode() {
+    const code = document.getElementById('accessCode').value.trim().toUpperCase();
+    const errorEl = document.getElementById('modalError');
+    
+    if (code === ACCESS_CODE) {
+        // Unlock calculator
+        localStorage.setItem('calculatorUnlocked', 'true');
+        closeUnlockModal();
+        checkCalculatorAccess();
+        
+        // Show success message
+        alert('Acesso desbloqueado com sucesso! Agora você pode usar a calculadora.');
+    } else {
+        errorEl.classList.add('show');
+    }
+}
+
+// Close modal on overlay click
+document.getElementById('unlockModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeUnlockModal();
+    }
+});
+
+// Close modal on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeUnlockModal();
+    }
+});
+
+// Function to reset access (for testing or admin)
+function resetAccess() {
+    localStorage.removeItem('calculatorUnlocked');
+    checkCalculatorAccess();
+    alert('Acesso resetado. A calculadora foi bloqueada novamente.');
+}
