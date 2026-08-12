@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas de Brigadeiro sem Fogo! - Área de Membros</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-cookie-bite"></i>
+                    <span>Receitas de Brigadeiro sem Fogo!</span>
+                </div>
+                <nav class="nav">
+                    <a href="#receitas" class="nav-link">Receitas</a>
+                    <a href="#dicas" class="nav-link">Dicas Rápidas</a>
+                    <a href="#calculadora" class="nav-link">Calculadora</a>
+                </nav>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Bem-vinda à sua Área de Membros!</h1>
+            <p>Acesse todas as suas receitas, apostilas e dicas exclusivas para criar brigadeiros e doces sem fogão!</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Receitas</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">45+</span>
+                    <span class="stat-label">Apostilas PDF</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">Categorias</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Navigation -->
+    <section class="categories-nav" id="receitas">
+        <div class="container">
+            <h2 class="section-title">Escolha uma Categoria</h2>
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="brigadeiros">
+                    <i class="fas fa-cookie"></i>
+                    Brigadeiros
+                </button>
+                <button class="tab-btn" data-category="recheios">
+                    <i class="fas fa-jar"></i>
+                    Recheios
+                </button>
+                <button class="tab-btn" data-category="bolos">
+                    <i class="fas fa-birthday-cake"></i>
+                    Bolos
+                </button>
+                <button class="tab-btn" data-category="doces-finos">
+                    <i class="fas fa-candy-cane"></i>
+                    Doces Finos
+                </button>
+                <button class="tab-btn" data-category="geladinhos-e-geleias">
+                    <i class="fas fa-ice-cream"></i>
+                    Geladinhos
+                </button>
+                <button class="tab-btn" data-category="salgados-e-massas">
+                    <i class="fas fa-bread-slice"></i>
+                    Salgados
+                </button>
+                <button class="tab-btn" data-category="outros">
+                    <i class="fas fa-ellipsis-h"></i>
+                    Outros
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDFs Section -->
+    <section class="pdfs-section">
+        <div class="container">
+            <div class="pdfs-grid" id="pdfsGrid">
+                <!-- PDFs will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Tips -->
+    <section class="tips-section" id="dicas">
+        <div class="container">
+            <h2 class="section-title">Dicas Rápidas</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Validade dos Brigadeiros</h3>
+                    <p>Brigueiros sem fogo duram até <strong>30 dias</strong> na geladeira e <strong>3 meses</strong> no freezer. Sempre armazene em recipiente hermético!</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-temperature-low"></i>
+                    </div>
+                    <h3>Temperatura Ideal</h3>
+                    <p>A brigadeira fica no ponto ideal quando a massa desgruda da panela e forma uma camada na colher. Temperatura ambiente: <strong>20-25°C</strong>.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                    <h3>Medidas Padrão</h3>
+                    <p>Para brigadeiros uniformes, use uma <strong>medideira de 10g</strong>. Isso garante que todos fiquem do mesmo tamanho e rendimento.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Brilho Perfeito</h3>
+                    <p>Para um brilho profissional, passe a brigadeira em <strong>granulado fino</strong> ou <strong>chocolate em pó</strong> antes de embrulhar.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Embalagem Lucrativa</h3>
+                    <p>Invista em embalagens bonitas! Um brigadeiro bem embalado pode valer <strong>3x mais</strong> que um solto.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Calcule o Preço</h3>
+                    <p>Use nossa calculadora abaixo para precificar seus produtos. Nunca venda abaixo do custo + lucro desejado!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="calculator-section" id="calculadora">
+        <div class="container">
+            <h2 class="section-title">Calculadora de Custos e Preço</h2>
+            <p class="section-subtitle">Calcule o custo de produção e o preço de venda ideal dos seus doces</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <h3><i class="fas fa-shopping-cart"></i> Custos dos Ingredientes</h3>
+                    
+                    <div class="ingredients-list" id="ingredientsList">
+                        <div class="ingredient-row">
+                            <input type="text" placeholder="Nome do ingrediente" class="ingredient-name">
+                            <input type="number" placeholder="Quantidade" class="ingredient-qty" step="0.01">
+                            <select class="ingredient-unit">
+                                <option value="kg">kg</option>
+                                <option value="g">g</option>
+                                <option value="l">litros</option>
+                                <option value="ml">ml</option>
+                                <option value="un">unidades</option>
+                                <option value="pacote">pacote(s)</option>
+                                <option value="lata">lata(s)</option>
+                                <option value="caixa">caixa(s)</option>
+                            </select>
+                            <input type="number" placeholder="Preço unitário (R$)" class="ingredient-price" step="0.01">
+                            <button class="remove-ingredient" onclick="removeIngredient(this)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button class="add-ingredient-btn" onclick="addIngredient()">
+                        <i class="fas fa-plus"></i> Adicionar Ingrediente
+                    </button>
+
+                    <div class="additional-costs">
+                        <h3><i class="fas fa-coins"></i> Custos Adicionais</h3>
+                        <div class="cost-row">
+                            <label>Embalagem (R$):</label>
+                            <input type="number" id="packagingCost" placeholder="0,00" step="0.01" value="0">
+                        </div>
+                        <div class="cost-row">
+                            <label>Mão de obra (R$):</label>
+                            <input type="number" id="laborCost" placeholder="0,00" step="0.01" value="0">
+                        </div>
+                        <div class="cost-row">
+                            <label>Outros custos (R$):</label>
+                            <input type="number" id="otherCosts" placeholder="0,00" step="0.01" value="0">
+                        </div>
+                    </div>
+
+                    <div class="production-info">
+                        <h3><i class="fas fa-chart-pie"></i> Informações de Produção</h3>
+                        <div class="cost-row">
+                            <label>Quantidade produzida:</label>
+                            <input type="number" id="quantityProduced" placeholder="Ex: 30" value="30">
+                        </div>
+                        <div class="cost-row">
+                            <label>Lucro desejado (%):</label>
+                            <input type="number" id="profitMargin" placeholder="Ex: 100" value="100">
+                        </div>
+                    </div>
+
+                    <button class="calculate-btn" onclick="calculatePrice()">
+                        <i class="fas fa-calculator"></i> Calcular Preço
+                    </button>
+                </div>
+
+                <div class="calculator-result" id="calculatorResult">
+                    <h3><i class="fas fa-receipt"></i> Resultado</h3>
+                    <div class="result-card">
+                        <div class="result-item">
+                            <span class="result-label">Custo Total dos Ingredientes:</span>
+                            <span class="result-value" id="totalIngredientsCost">R$ 0,00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Custo por Unidade:</span>
+                            <span class="result-value" id="costPerUnit">R$ 0,00</span>
+                        </div>
+                        <div class="result-item highlight">
+                            <span class="result-label">Preço de Venda Sugerido:</span>
+                            <span class="result-value" id="suggestedPrice">R$ 0,00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Lucro por Unidade:</span>
+                            <span class="result-value" id="profitPerUnit">R$ 0,00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Lucro Total (lote):</span>
+                            <span class="result-value" id="totalProfit">R$ 0,00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-prices">
+                        <h4>Preços de Venda Sugeridos</h4>
+                        <div class="price-chips">
+                            <div class="price-chip">
+                                <span>1 unidade</span>
+                                <strong id="price1">R$ 0,00</strong>
+                            </div>
+                            <div class="price-chip">
+                                <span>6 unidades</span>
+                                <strong id="price6">R$ 0,00</strong>
+                            </div>
+                            <div class="price-chip">
+                                <span>12 unidades</span>
+                                <strong id="price12">R$ 0,00</strong>
+                            </div>
+                            <div class="price-chip">
+                                <span>Caixa c/ 24</span>
+                                <strong id="price24">R$ 0,00</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="save-recipe-btn" onclick="saveRecipe()">
+                        <i class="fas fa-save"></i> Salvar Receita
+                    </button>
+                </div>
+            </div>
+
+            <!-- Saved Recipes -->
+            <div class="saved-recipes" id="savedRecipes">
+                <h3><i class="fas fa-bookmark"></i> Receitas Salvas</h3>
+                <div class="recipes-list" id="recipesList">
+                    <!-- Saved recipes will appear here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-cookie-bite"></i>
+                    <span>Receitas de Brigadeiro sem Fogo!</span>
+                </div>
+                <p class="footer-text">Área de Membros Exclusiva</p>
+                <div class="footer-links">
+                    <a href="#receitas">Receitas</a>
+                    <a href="#dicas">Dicas</a>
+                    <a href="#calculadora">Calculadora</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
