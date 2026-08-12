@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadPDFs('brigadeiros');
     setupCategoryTabs();
     setupMobileMenu();
-    checkCalculatorAccess();
+    checkExclusiveAccess();
     loadSavedRecipes();
 });
 
@@ -361,23 +361,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // LOCK SYSTEM FUNCTIONS
 // ============================================
 
-// Check if calculator is unlocked
-function checkCalculatorAccess() {
-    const isUnlocked = localStorage.getItem('calculatorUnlocked') === 'true';
-    const lockedEl = document.getElementById('calculatorLocked');
-    const contentEl = document.getElementById('calculatorContent');
+// Current item to unlock
+let currentUnlockItem = null;
+
+// Check if items are unlocked
+function checkExclusiveAccess() {
+    const items = ['bonus1', 'bonus2', 'calculator'];
     
-    if (isUnlocked) {
-        lockedEl.style.display = 'none';
-        contentEl.style.display = 'block';
-    } else {
-        lockedEl.style.display = 'block';
-        contentEl.style.display = 'none';
-    }
+    items.forEach(item => {
+        const isUnlocked = localStorage.getItem(`${item}Unlocked`) === 'true';
+        const card = document.getElementById(`${item}Card`);
+        const lockEl = card.querySelector('.exclusive-lock');
+        const unlockBtn = card.querySelector('.exclusive-unlock-btn');
+        const unlockedEl = document.getElementById(`${item}Unlocked`);
+        
+        if (isUnlocked) {
+            card.classList.remove('locked');
+            lockEl.style.display = 'none';
+            unlockBtn.style.display = 'none';
+            unlockedEl.style.display = 'block';
+        }
+    });
 }
 
-// Open unlock modal
-function openUnlockModal() {
+// Open exclusive modal
+function openExclusiveModal(item) {
+    currentUnlockItem = item;
     document.getElementById('unlockModal').classList.add('active');
     document.getElementById('accessCode').value = '';
     document.getElementById('modalError').classList.remove('show');
@@ -386,6 +395,7 @@ function openUnlockModal() {
 // Close unlock modal
 function closeUnlockModal() {
     document.getElementById('unlockModal').classList.remove('active');
+    currentUnlockItem = null;
 }
 
 // Validate access code
@@ -394,13 +404,21 @@ function validateCode() {
     const errorEl = document.getElementById('modalError');
     
     if (code === ACCESS_CODE) {
-        // Unlock calculator
+        // Unlock the current item
+        if (currentUnlockItem) {
+            localStorage.setItem(`${currentUnlockItem}Unlocked`, 'true');
+        }
+        
+        // Also unlock all items (since one code unlocks everything)
+        localStorage.setItem('bonus1Unlocked', 'true');
+        localStorage.setItem('bonus2Unlocked', 'true');
         localStorage.setItem('calculatorUnlocked', 'true');
+        
         closeUnlockModal();
-        checkCalculatorAccess();
+        checkExclusiveAccess();
         
         // Show success message
-        alert('Acesso desbloqueado com sucesso! Agora você pode usar a calculadora.');
+        alert('Acesso desbloqueado com sucesso! Agora você pode acessar todos os conteúdos exclusivos.');
     } else {
         errorEl.classList.add('show');
     }
@@ -422,7 +440,9 @@ document.addEventListener('keydown', function(e) {
 
 // Function to reset access (for testing or admin)
 function resetAccess() {
+    localStorage.removeItem('bonus1Unlocked');
+    localStorage.removeItem('bonus2Unlocked');
     localStorage.removeItem('calculatorUnlocked');
-    checkCalculatorAccess();
-    alert('Acesso resetado. A calculadora foi bloqueada novamente.');
+    checkExclusiveAccess();
+    alert('Acesso resetado. Todos os conteúdos foram bloqueados novamente.');
 }
