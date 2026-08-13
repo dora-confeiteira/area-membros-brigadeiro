@@ -51,92 +51,6 @@
         </div>
     </section>
 
-    <!-- Exclusive Content - Locked -->
-    <section class="exclusive-section" id="exclusivos">
-        <div class="container">
-            <h2 class="section-title">Conteúdo Exclusivo</h2>
-            <p class="section-subtitle">Desbloqueie os ebooks premium e a calculadora profissional — todos os downloads estão logo abaixo</p>
-            
-            <div class="exclusive-grid">
-                <!-- Bonus 1 -->
-                <div class="exclusive-card locked" id="bonus1Card">
-                    <div class="exclusive-badge">BÔNUS</div>
-                    <div class="exclusive-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Comece Sem Gasta</h3>
-                    <p>Guia completo para começar a vender doces sem investimento inicial</p>
-                    <div class="exclusive-lock">
-                        <i class="fas fa-lock"></i>
-                        <span>Bloqueado</span>
-                    </div>
-                    <button class="exclusive-unlock-btn" onclick="openExclusiveModal('bonus1')">
-                        <i class="fas fa-key"></i> Desbloquear
-                    </button>
-                    <div class="exclusive-unlocked" id="bonus1Unlocked" style="display: none;">
-                        <a href="docs/outros/Comece sem gasta (BONUS).pdf" target="_blank" class="exclusive-download-btn">
-                            <i class="fas fa-download"></i> Baixar PDF
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Bonus 2 -->
-                <div class="exclusive-card locked" id="bonus2Card">
-                    <div class="exclusive-badge">BÔNUS</div>
-                    <div class="exclusive-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Guia de Validade e Conservação</h3>
-                    <p>Saiba quanto tempo cada receita dura e como conservar corretamente</p>
-                    <div class="exclusive-lock">
-                        <i class="fas fa-lock"></i>
-                        <span>Bloqueado</span>
-                    </div>
-                    <button class="exclusive-unlock-btn" onclick="openExclusiveModal('bonus2')">
-                        <i class="fas fa-key"></i> Desbloquear
-                    </button>
-                    <div class="exclusive-unlocked" id="bonus2Unlocked" style="display: none;">
-                        <a href="docs/outros/Guia de Validade e Conservacao dos Recheios Sem Fogo.pdf" target="_blank" class="exclusive-download-btn">
-                            <i class="fas fa-download"></i> Baixar PDF
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Calculator -->
-                <div class="exclusive-card locked" id="calcCard">
-                    <div class="exclusive-badge premium">PREMIUM</div>
-                    <div class="exclusive-icon calculator-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Calculadora de Custos</h3>
-                    <p>Calcule o custo de produção e preço de venda dos seus doces</p>
-                    <div class="exclusive-lock">
-                        <i class="fas fa-lock"></i>
-                        <span>Bloqueado</span>
-                    </div>
-                    <button class="exclusive-unlock-btn" onclick="openExclusiveModal('calculator')">
-                        <i class="fas fa-key"></i> Desbloquear
-                    </button>
-                    <div class="exclusive-unlocked" id="calcUnlocked" style="display: none;">
-                        <a href="#calculadora" class="exclusive-download-btn">
-                            <i class="fas fa-calculator"></i> Usar Calculadora
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exclusive-price">
-                <span>Desbloqueie Tudo por Apenas</span>
-                <strong>R$ 10,00</strong>
-                <p>Receba um código único que desbloqueia todos os itens</p>
-            </div>
-
-            <div class="scroll-hint">
-                <p>👇 Veja abaixo todas as receitas disponíveis</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Categories Navigation -->
     <section class="categories-nav" id="receitas">
         <div class="container">
@@ -230,6 +144,88 @@
                     <h3>Calcule o Preço</h3>
                     <p>Use nossa calculadora abaixo para precificar seus produtos. Nunca venda abaixo do custo + lucro desejado!</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exclusive Content - Locked -->
+    <section class="exclusive-section" id="exclusivos">
+        <div class="container">
+            <h2 class="section-title">Conteúdo Exclusivo</h2>
+            <p class="section-subtitle">Desbloqueie os ebooks premium e a calculadora profissional</p>
+            
+            <div class="exclusive-grid">
+                <!-- Bonus 1 -->
+                <div class="exclusive-card locked" id="bonus1Card">
+                    <div class="exclusive-badge">BÔNUS</div>
+                    <div class="exclusive-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Comece Sem Gasta</h3>
+                    <p>Guia completo para começar a vender doces sem investimento inicial</p>
+                    <div class="exclusive-lock">
+                        <i class="fas fa-lock"></i>
+                        <span>Bloqueado</span>
+                    </div>
+                    <button class="exclusive-unlock-btn" onclick="openExclusiveModal('bonus1')">
+                        <i class="fas fa-key"></i> Desbloquear
+                    </button>
+                    <div class="exclusive-unlocked" id="bonus1Unlocked" style="display: none;">
+                        <a href="docs/outros/Comece sem gasta (BONUS).pdf" target="_blank" class="exclusive-download-btn">
+                            <i class="fas fa-download"></i> Baixar PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bonus 2 -->
+                <div class="exclusive-card locked" id="bonus2Card">
+                    <div class="exclusive-badge">BÔNUS</div>
+                    <div class="exclusive-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Guia de Validade e Conservação</h3>
+                    <p>Saiba quanto tempo cada receita dura e como conservar corretamente</p>
+                    <div class="exclusive-lock">
+                        <i class="fas fa-lock"></i>
+                        <span>Bloqueado</span>
+                    </div>
+                    <button class="exclusive-unlock-btn" onclick="openExclusiveModal('bonus2')">
+                        <i class="fas fa-key"></i> Desbloquear
+                    </button>
+                    <div class="exclusive-unlocked" id="bonus2Unlocked" style="display: none;">
+                        <a href="docs/outros/Guia de Validade e Conservacao dos Recheios Sem Fogo.pdf" target="_blank" class="exclusive-download-btn">
+                            <i class="fas fa-download"></i> Baixar PDF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Calculator -->
+                <div class="exclusive-card locked" id="calcCard">
+                    <div class="exclusive-badge premium">PREMIUM</div>
+                    <div class="exclusive-icon calculator-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Calculadora de Custos</h3>
+                    <p>Calcule o custo de produção e preço de venda dos seus doces</p>
+                    <div class="exclusive-lock">
+                        <i class="fas fa-lock"></i>
+                        <span>Bloqueado</span>
+                    </div>
+                    <button class="exclusive-unlock-btn" onclick="openExclusiveModal('calculator')">
+                        <i class="fas fa-key"></i> Desbloquear
+                    </button>
+                    <div class="exclusive-unlocked" id="calcUnlocked" style="display: none;">
+                        <a href="#calculadora" class="exclusive-download-btn">
+                            <i class="fas fa-calculator"></i> Usar Calculadora
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exclusive-price">
+                <span>Desbloqueie Tudo por Apenas</span>
+                <strong>R$ 10,00</strong>
+                <p>Receba um código único que desbloqueia todos os itens</p>
             </div>
         </div>
     </section>
