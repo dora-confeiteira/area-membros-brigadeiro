@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupCategoryTabs();
     setupMobileMenu();
     checkExclusiveAccess();
+    checkCalculatorLock();
     loadSavedRecipes();
 });
 
@@ -215,6 +216,55 @@ function calculatePrice() {
     result.style.animation = 'none';
     result.offsetHeight; // Trigger reflow
     result.style.animation = 'pulse 0.5s ease';
+    
+    // Track usage - lock after first use
+    const usageCount = parseInt(localStorage.getItem('calculatorUsage') || '0');
+    localStorage.setItem('calculatorUsage', usageCount + 1);
+    
+    if (usageCount >= 1) {
+        // Lock calculator after first use
+        setTimeout(() => {
+            lockCalculator();
+        }, 1500);
+    }
+}
+
+function lockCalculator() {
+    const calcContent = document.getElementById('calculatorContent');
+    calcContent.innerHTML = `
+        <div class="calculator-locked-final">
+            <div class="lock-card-final">
+                <div class="lock-icon-final">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>Calculadora Bloqueada!</h3>
+                <p>Para continuar usando a calculadora, faça o pagamento de <strong>R$ 10,00</strong> e envie o comprovante.</p>
+                
+                <div class="payment-box">
+                    <h4><i class="fas fa-qrcode"></i> PIX</h4>
+                    <div class="pix-key">
+                        <span>Chave PIX:</span>
+                        <strong>31 987039615</strong>
+                    </div>
+                </div>
+                
+                <div class="whatsapp-box">
+                    <h4><i class="fab fa-whatsapp"></i> WhatsApp</h4>
+                    <p>Envie o comprovante e receba seu código de acesso:</p>
+                    <a href="https://wa.me/5531987039615?text=Olá! Fiz o pagamento de R$10 para desbloquear a calculadora. Segue o comprovante." target="_blank" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Enviar no WhatsApp
+                    </a>
+                </div>
+                
+                <div class="unlock-final">
+                    <p>Já tem o código?</p>
+                    <button onclick="openExclusiveModal('calculator')" class="unlock-final-btn">
+                        <i class="fas fa-key"></i> Digitar Código
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 function formatCurrency(value) {
@@ -343,6 +393,17 @@ function deleteRecipe(id) {
         savedRecipes = savedRecipes.filter(r => r.id !== id);
         localStorage.setItem('recipes', JSON.stringify(savedRecipes));
         loadSavedRecipes();
+    }
+}
+
+// Check if calculator should be locked
+function checkCalculatorLock() {
+    const usageCount = parseInt(localStorage.getItem('calculatorUsage') || '0');
+    const isUnlocked = localStorage.getItem('calculatorUnlocked') === 'true';
+    
+    // If used more than once and not unlocked with code, lock it
+    if (usageCount >= 1 && !isUnlocked) {
+        lockCalculator();
     }
 }
 
